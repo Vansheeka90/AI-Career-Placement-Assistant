@@ -12,8 +12,10 @@ from sklearn.metrics import accuracy_score
 df = pd.read_csv("dataset/student_placement_synthetic.csv")
 
 print("First 5 Rows:")
-print(df.head())
 
+df = df.sample(n=20000, random_state=42)
+print(df.head())
+print(df.shape)
 # ==========================
 # Encode Categorical Column
 # ==========================

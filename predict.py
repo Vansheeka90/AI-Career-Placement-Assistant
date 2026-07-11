@@ -3,22 +3,12 @@ import pandas as pd
 
 # Load trained model and encoders
 import os
-import joblib
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-model = joblib.load(
-    os.path.join(BASE_DIR,"model","placement_model.pkl")
-)
-
-branch_encoder = joblib.load(
-    os.path.join(BASE_DIR,"model","label_encoder.pkl")
-)
-
-tier_encoder = joblib.load(
-    os.path.join(BASE_DIR,"model","tier_encoder.pkl")
-)
-
+# Add this to predict.py before loading
+model = joblib.load("model/placement_model.pkl")
+branch_encoder = joblib.load("model/label_encoder.pkl")
+tier_encoder = joblib.load("model/tier_encoder.pkl")
 
 def predict_placement(
     branch,
